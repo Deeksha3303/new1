@@ -1,0 +1,276 @@
+/* General Reset */
+body {
+  background: linear-gradient(to right, #013b4b, #032043);
+  font-family: 'Poppins', sans-serif;
+  color: #4087c1;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.title {
+  margin: 20px 0;
+}
+
+/* Board Styles */
+.board {
+  display: grid;
+  grid-template-rows: repeat(6, auto);
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tile {
+  width: 60px;
+  height: 60px;
+  margin: 5px;
+  text-align: center;
+  line-height: 60px;
+  font-size: 24px;
+  font-weight: bold;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+}
+
+.correct {
+  background-color: green;
+  color: white;
+}
+
+.present {
+  background-color: rgb(200, 153, 67);
+  color: black;
+}
+
+.absent {
+  background-color: rgb(67, 67, 67);;
+  color: white;
+}
+
+/* Keyboard Styles */
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 0 10px;
+}
+
+.keyboard-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
+.key {
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  background: #818384;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  min-width: 35px;
+}
+
+.key:active {
+  transform: scale(0.95);
+}
+
+.key:focus {
+  outline: none;
+}
+
+/* Keyboard Styles */
+.key.correct {
+  background-color: green;
+  color: white;
+}
+
+.key.present {
+  background-color: rgb(200, 153, 67);
+  color: black;
+}
+
+.key.absent {
+  background-color: rgb(67, 67, 67);
+  color: white;
+}
+
+
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  width: 80%;
+  max-width: 400px;
+  animation: slideUp 0.3s ease-out;
+}
+
+.modal-message.win-message {
+  color: rgb(7, 7, 98);
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.modal-message.lose-message {
+  color: rgb(13, 30, 98);
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.modal-extra {
+  font-size: 20px;
+  margin-top: 10px;
+  color: #3c1c87;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Snowflake Styles */
+.snowflakes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+.snowflake {
+  color: white;
+  font-size: 1.5em;
+  font-family: Arial, sans-serif;
+  position: absolute;
+  top: -2em;
+  animation-name: fall;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  opacity: 0.8;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+
+.snowflake:nth-child(1) { left: 10%; animation-delay: 0s; }
+.snowflake:nth-child(2) { left: 20%; animation-delay: 2s; }
+.snowflake:nth-child(3) { left: 30%; animation-delay: 4s; }
+.snowflake:nth-child(4) { left: 50%; animation-delay: 1s; }
+.snowflake:nth-child(5) { left: 70%; animation-delay: 3s; }
+.snowflake:nth-child(6) { left: 90%; animation-delay: 5s; }
+
+/* Invalid word popup */
+.invalid-word-message {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #7099bd;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  z-index: 9999;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    top: 0;
+  }
+  to {
+    opacity: 1;
+    top: 20px;
+  }
+}
+
+/* 📱 Mobile-specific adjustments */
+@media (max-width: 600px) {
+  .tile {
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 20px;
+  }
+
+  /* Keyboard rows adjustment */
+  .keyboard-row {
+    gap: 5px;
+  }
+
+  /* All regular keys */
+  .key {
+    font-size: 14px;
+    padding: 10px 0;
+    min-width: 30px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Specifically target Enter key (first child) and Del key (last child) */
+  .keyboard-row:last-child .key:nth-child(1),
+  .keyboard-row:last-child .key:last-child {
+    min-width: 50px;
+    font-size: 13px;
+    padding: 10px 5px;
+  }
+
+  /* Regular letter keys in last row */
+  .keyboard-row:last-child .key:not(:first-child):not(:last-child) {
+    min-width: 30px;
+  }
+
+  /* Modal content adjustments for mobile */
+  .modal-content {
+    width: 90%;
+  }
+}
