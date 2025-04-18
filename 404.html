@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page Not Found</title>
     <script>
-      // Check if the path has `/new1` and navigate to it correctly
-      window.location.replace(window.location.origin + window.location.pathname.replace("/new1", "") + "/new1" + window.location.search);
+      // Fixing the redirect by making sure '/new1' is added before the path
+      var currentPath = window.location.pathname;
+      if (!currentPath.startsWith('/new1')) {
+        window.location.replace('/new1' + currentPath);
+      }
     </script>
   </head>
   <body>
