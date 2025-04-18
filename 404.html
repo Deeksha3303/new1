@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <title>Redirecting...</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <title>Redirecting…</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script type="text/javascript">
       (function () {
-        var path = window.location.pathname;
-        var hasBase = path.startsWith("/new1");
+        const pathname = window.location.pathname;
 
-        // Redirect ONLY if path does not start with /new1
-        if (!hasBase) {
-          var newPath = "/new1" + path + window.location.search + window.location.hash;
-          window.location.replace(newPath);
+        // Only redirect if not already in /new1
+        if (!pathname.startsWith("/new1")) {
+          const newUrl =
+            "/new1" + pathname + window.location.search + window.location.hash;
+          window.location.replace(newUrl);
         }
       })();
     </script>
   </head>
   <body>
-    <p>Redirecting...</p>
+    <p>Redirecting…</p>
   </body>
 </html>
