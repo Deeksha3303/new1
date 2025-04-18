@@ -2,18 +2,22 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <title>Redirecting...</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page Not Found</title>
-    <script>
-      var currentPath = window.location.pathname;
+    <script type="text/javascript">
+      (function () {
+        var path = window.location.pathname;
+        var hasBase = path.startsWith("/new1");
 
-      // Only redirect if the path doesn't already include "/new1"
-      if (!currentPath.startsWith('/new1')) {
-        window.location.replace('/new1' + currentPath);
-      }
+        // Redirect ONLY if path does not start with /new1
+        if (!hasBase) {
+          var newPath = "/new1" + path + window.location.search + window.location.hash;
+          window.location.replace(newPath);
+        }
+      })();
     </script>
   </head>
   <body>
-    <h1>Redirecting...</h1>
+    <p>Redirecting...</p>
   </body>
 </html>
