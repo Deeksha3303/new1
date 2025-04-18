@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page Not Found</title>
     <script>
-      // Redirect to the index.html and let React Router handle the routing
-      window.location.replace(window.location.origin + window.location.pathname + "#/");
+      // Check if the path has `/new1` and navigate to it correctly
+      window.location.replace(window.location.origin + window.location.pathname.replace("/new1", "") + "/new1" + window.location.search);
     </script>
   </head>
   <body>
