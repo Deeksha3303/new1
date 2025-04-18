@@ -6,18 +6,18 @@ body {
   text-align: center;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Prevent horizontal scroll */
-}
-
-.title {
-  margin: 20px 0;
+  height: 100vh; /* Ensure the body takes full screen height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensure content fits in the screen */
+  overflow: hidden;
 }
 
 /* Board Styles */
 .board {
   display: grid;
-  grid-template-rows: repeat(6, auto);
-  gap: 10px;
+  grid-template-rows: repeat(6, 1fr);
+  gap: 5px; /* Reduced gap between guess tiles */
   justify-content: center;
   margin-bottom: 20px;
 }
@@ -25,17 +25,17 @@ body {
 .row {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 5px; /* Reduced gap between letter tiles */
   flex-wrap: wrap;
 }
 
 .tile {
-  width: 60px;
-  height: 60px;
+  width: 40px; /* Reduced width */
+  height: 40px; /* Reduced height */
   margin: 5px;
   text-align: center;
-  line-height: 60px;
-  font-size: 24px;
+  line-height: 40px; /* Adjusted for new size */
+  font-size: 16px; /* Adjusted for smaller tiles */
   font-weight: bold;
   border: 2px solid #ccc;
   border-radius: 8px;
@@ -55,33 +55,35 @@ body {
   background-color: rgb(67, 67, 67);;
   color: white;
 }
-
 /* Keyboard Styles */
 .keyboard {
   display: flex;
   flex-direction: column;
-  gap: 8px;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   padding: 0 10px;
 }
 
 .keyboard-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
   justify-content: center;
+  gap: 8px; /* Gap between keys */
+  margin-bottom: 10px; /* Space between rows */
 }
 
 .key {
   padding: 14px;
-  font-size: 16px;
+  font-size: 16px;  /* Increased font size */
   border: none;
   background: #818384;
   color: white;
   border-radius: 4px;
   cursor: pointer;
-  min-width: 35px;
+  min-width: 35px;  /* Slightly larger key size */
+  height: 50px;  /* Larger height for each key */
+  margin: 5px;  /* Space between individual keys */
+  box-sizing: border-box;
 }
 
 .key:active {
@@ -92,7 +94,7 @@ body {
   outline: none;
 }
 
-/* Keyboard Styles */
+/* Correct, Present, and Absent Key States */
 .key.correct {
   background-color: green;
   color: white;
@@ -107,8 +109,6 @@ body {
   background-color: rgb(67, 67, 67);
   color: white;
 }
-
-
 
 /* Modal */
 .modal {

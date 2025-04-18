@@ -1,3 +1,4 @@
+//Wordle.js
 import React, { useState, useEffect } from "react";
 import Board from "./Board";
 import Keyboard from "./Keyboard";

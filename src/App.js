@@ -1,25 +1,20 @@
+// src/App.js
 import React from 'react';
-import Game from './components/Wordle';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import Home from './components/Home';
+import WordlePage from './components/WordlePage';
+import Contexto from './components/Contexto'; 
+import Crossword from './components/Crossword'; 
+
 
 function App() {
   return (
-    <div className="app-container">
-      <div className="app">
-        <h1 className="title">🎉 BIRTHDAY WORDLE 🎉</h1>
-        <Game />
-      </div>
-
-      {/* Snowflakes floating effect */}
-      <div className="snowflakes" aria-hidden="true">
-        <div className="snowflake">❄</div>
-        <div className="snowflake">❅</div>
-        <div className="snowflake">❆</div>
-        <div className="snowflake">❄</div>
-        <div className="snowflake">❅</div>
-        <div className="snowflake">❆</div>
-      </div>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/wordle" element={<WordlePage />} />
+      <Route path="/contexto" element={<Contexto />} />
+      <Route path="/crossword" element={<Crossword />} />
+    </Routes>
   );
 }
 

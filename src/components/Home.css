@@ -1,0 +1,13 @@
+/* src/components/Home.css */
+.home {
+    text-align: center;
+    margin-top: 100px;
+  }
+  
+  button {
+    margin: 20px;
+    padding: 12px 24px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
